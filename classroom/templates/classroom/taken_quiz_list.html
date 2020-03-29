@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ 
+  <div class="card">
+    <table class="table mb-0">
+      <thead>
+        <tr>
+          <th>Quiz</th>
+          <th>Subject</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for dashboard in dashboards %}
+          <tr>
+            <td>{{ dashboard.student }}</td>
+            <td>{{ dashboard.quiz }}</td>
+            <td>{{ dashboard.score }}</td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td class="bg-light text-center font-italic" colspan="3">You haven't completed any quiz yet.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
